@@ -91,9 +91,8 @@ function getValue(structure, x, y) {
 /**
  * create view of structure in html table with id
  */
-function renderTable(structure, tableId) {
+function renderTable(structure) {
     const tableRoot = document.createElement('table');
-    tableRoot.id = tableId;
     tableRoot.classList.add('table');
     const tableBody = document.createElement('tbody');
     tableRoot.appendChild(tableBody);
