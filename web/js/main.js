@@ -1,3 +1,6 @@
+/**
+ * generate 0 or 1 number
+ */
 function getSwitchRandom() {
     const generatedNumber = Math.floor(Math.random() * 11);
 
