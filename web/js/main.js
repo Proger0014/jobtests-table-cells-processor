@@ -125,7 +125,7 @@ function alertCount(count, width, height) {
  * change table style with yellow cells
  */
 function tableToWarning(tableNode) {
-    if (!tableNode.classList.has('table-warning')) {
+    if (!Array.from(tableNode.classList).includes('table-warning')) {
         tableNode.classList.add('table-warning');
     }
 }
