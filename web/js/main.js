@@ -134,13 +134,13 @@ function setupEventListenersToButtons(btnArray, btnForAlert, dto) {
     btnArray.forEach(btn => {
         const button = document.getElementById(btn);
 
-        if (btn.equals(btnForAlert)) {
+        if (btn === btnForAlert) {
             button.addEventListener('click', () => {
                 alertCount(dto.count, dto.width, dto.height);
                 tableToWarning(dto.tableNode);
             });
         } else {
-            btn.addEventListener('click', () => {
+            button.addEventListener('click', () => {
                 tableToWarning(dto.tableNode);
             });
         }
@@ -148,7 +148,25 @@ function setupEventListenersToButtons(btnArray, btnForAlert, dto) {
 }
 
 function run() {
+    const root = document.getElementById('root');
 
+    const tableSize = 5;
+    const buttons = ['btn1', 'btn2', 'btn3'];
+    const buttonForAlert = 'btn2';
+
+    const structure = generateStructure(tableSize, tableSize);
+    const countOfCells = calculateCells(structure);
+
+    const tableNode = renderTable(structure);
+
+    setupEventListenersToButtons(buttons, buttonForAlert, {
+        count: countOfCells,
+        width: tableSize,
+        height: tableSize,
+        tableNode: tableNode
+    });
+
+    root.appendChild(tableNode);
 }
 
 run();
