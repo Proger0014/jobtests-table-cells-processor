@@ -130,6 +130,23 @@ function tableToWarning(tableNode) {
     }
 }
 
+function setupEventListenersToButtons(btnArray, btnForAlert, dto) {
+    btnArray.forEach(btn => {
+        const button = document.getElementById(btn);
+
+        if (btn.equals(btnForAlert)) {
+            button.addEventListener(() => {
+                alertCount(dto.count, dto.width, dto.height);
+                tableToWarning(dto.tableNode);
+            });
+        } else {
+            btn.addEventListener(() => {
+                tableToWarning(dto.tableNode);
+            });
+        }
+    });
+}
+
 function run() {
 
 }
