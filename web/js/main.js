@@ -118,7 +118,7 @@ function renderTable(structure) {
  * alert message of count cells that satisfy condition
  */
 function alertCount(count, width, height) {
-    alert(`count of cells 0 with peripheral 1 more than 1 in table ${width}x${height}\n${count}`);
+    alert(`count of cells 0 with peripheral 1 equals or more than 2 in table ${width}x${height}\ncount: ${count}`);
 }
 
 /**
