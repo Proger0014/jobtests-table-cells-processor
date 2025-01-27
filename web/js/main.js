@@ -135,12 +135,12 @@ function setupEventListenersToButtons(btnArray, btnForAlert, dto) {
         const button = document.getElementById(btn);
 
         if (btn.equals(btnForAlert)) {
-            button.addEventListener(() => {
+            button.addEventListener('click', () => {
                 alertCount(dto.count, dto.width, dto.height);
                 tableToWarning(dto.tableNode);
             });
         } else {
-            btn.addEventListener(() => {
+            btn.addEventListener('click', () => {
                 tableToWarning(dto.tableNode);
             });
         }
