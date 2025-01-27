@@ -115,6 +115,22 @@ function renderTable(structure, tableId) {
     return tableRoot;
 }
 
+/**
+ * alert message of count cells that satisfy condition
+ */
+function alertCount(count, width, height) {
+    alert(`count of cells 0 with peripheral 1 more than 1 in table ${width}x${height}\n${count}`);
+}
+
+/**
+ * change table style with yellow cells
+ */
+function tableToWarning(tableNode) {
+    if (!tableNode.classList.has('table-warning')) {
+        tableNode.classList.add('table-warning');
+    }
+}
+
 function run() {
 
 }
