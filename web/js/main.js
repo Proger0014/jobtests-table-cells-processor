@@ -28,6 +28,65 @@ function generateStructure(width, height) {
     return structure;
 }
 
+/**
+ * calculate how much cells 0 have cells 1 in count more or equals 2
+ *
+ * in structure [
+ *     [0, 1, 0, 0],
+ *     [0, 0, 1, 0]
+ * ]
+ *
+ * 2 cells satisfy that condition [0, 2] cell and [1, 1] cell
+ *
+ * @returns count of cells, that satisfy that condition
+ */
+function calculateCells(structure) {
+    let count = 0;
+
+    for (let i = 0; i < structure.length; i++) {
+        const lengthOfInner = structure[i].length;
+
+        for (let j = 0; j < lengthOfInner; j++) {
+            if (predicate(structure, i, j)) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+/**
+ * performs role of condition for calculateCells
+ */
+function predicate(structure, x, y) {
+    const value = structure[x][y];
+
+    if (value !== 0) return false;
+
+    const peripheralValues = [];
+
+    peripheralValues.push(
+        getValue(structure, x, y - 1),
+        getValue(structure, x, y + 1),
+        getValue(structure, x - 1, y),
+        getValue(structure, x + 1, y)
+    );
+
+    return peripheralValues.filter(i => i === 1).length >= 2;
+}
+
+/**
+ * if value doesn't have, return -1, else value
+ */
+function getValue(structure, x, y) {
+    if (!structure[x] || !structure[x][y]) {
+        return -1;
+    }
+
+    return structure[x][y];
+}
+
 function run() {
 
 }
