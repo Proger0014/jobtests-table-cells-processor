@@ -89,7 +89,7 @@ function getValue(structure, x, y) {
 
 
 /**
- * create view of structure in html table with id
+ * create view of structure in html table
  */
 function renderTable(structure) {
     const tableRoot = document.createElement('table');
