@@ -87,6 +87,34 @@ function getValue(structure, x, y) {
     return structure[x][y];
 }
 
+
+/**
+ * create view of structure in html table with id
+ */
+function renderTable(structure, tableId) {
+    const tableRoot = document.createElement('table');
+    tableRoot.id = tableId;
+    tableRoot.classList.add('table');
+    const tableBody = document.createElement('tbody');
+    tableRoot.appendChild(tableBody);
+
+    for (let i = 0; i < structure.length; i++) {
+        const innerLength = structure[i].length;
+
+        const tableRow = document.createElement('tr');
+
+        for (let j = 0; j < innerLength; j++) {
+            const tableData = document.createElement('td');
+            tableData.textContent = structure[i][j];
+            tableRow.appendChild(tableData);
+        }
+
+        tableBody.appendChild(tableRow);
+    }
+
+    return tableRoot;
+}
+
 function run() {
 
 }
