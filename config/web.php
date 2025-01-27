@@ -3,6 +3,7 @@
 $config = [
     'id' => 'basic',
     'name' => 'table cells processor',
+    'defaultRoute' => 'main/index',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
